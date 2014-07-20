@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     int t2 = 0;
     vm_exec(hello, sizeof(hello), 0, 0, 1);
     t1 = (clock() / (CLOCKS_PER_SEC / 1000));
-    vm_exec(loop, sizeof(loop), 22, 2, 1);
+    vm_exec(loop, sizeof(loop), 22, 2, 0);
     t2 = (clock() / (CLOCKS_PER_SEC / 1000));
     printf("duration = %d ms\n", (t2 - t1));
     return 0;
