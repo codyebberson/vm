@@ -6,5 +6,4 @@ A simple VM impemented with computed dispatch in C. Build with `gcc vmtest.c vm.
 time (vmtest-switch-loop): 2.048s
 time (vmtest-computed-goto): 0.798s
 ```
-
-Fork of [vm](https://github.com/codyebberson/vm). Based on [simple-virtual-machine](https://github.com/parrt/simple-virtual-machine).
+Based on [simple-virtual-machine](https://github.com/parrt/simple-virtual-machine).
