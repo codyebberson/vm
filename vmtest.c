@@ -11,8 +11,8 @@ int hello[] = {
 
 int loop[] = {
 // .GLOBALS 2; N, I
-// N = 10                      ADDRESS
-        ICONST, 10,            // 0
+// N = 200000000               ADDRESS
+        ICONST, 200000000,     // 0
         GSTORE, 0,             // 2
 // I = 0
         ICONST, 0,             // 4
@@ -36,13 +36,20 @@ int loop[] = {
 
 int main(int argc, char *argv[])
 {
-    int t1 = 0;
-    int t2 = 0;
+    clock_t start;
+    clock_t end;
+    double duration;
+
+    // Run the "hello" program
     vm_exec(hello, sizeof(hello), 0, 0, 0);
-    t1 = (clock() / (CLOCKS_PER_SEC / 1000));
+
+    // Run the "loop" program
+    start = clock();
     vm_exec(loop, sizeof(loop), 0, 2, 0);
-    t2 = (clock() / (CLOCKS_PER_SEC / 1000));
-    printf("duration = %d ms\n", (t2 - t1));
+    end = clock();
+    duration = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("loop duration = %f sec\n", duration);
+
     return 0;
 }
 
